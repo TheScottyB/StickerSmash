@@ -1,0 +1,128 @@
+workflows:
+  # Development workflow - creates simulator build for testing
+  development-build:
+    name: Create iOS Simulator Build
+    description: Creates a development build for iOS simulator testing
+    
+    # Trigger on specific branches or manually
+    on:
+      workflow_dispatch: {}   # Allow manual triggering
+    
+    # Define the sequence of jobs to run
+    jobs:
+      build:
+        name: Build Development Binary
+        runs-on: eas
+        env:
+          EAS_BUILD_PROFILE: development
+        steps:
+          - name: 📥 Checkout source code
+            uses: checkout
+            with:
+              ref: ${{ inputs.branch || 'main' }}
+              
+          - name: 🏗️ Setup build environment
+            uses: expo-setup
+            
+          - name: 📱 Build development client for iOS simulator
+            uses: eas-build
+            with:
+              platform: ios
+              profile: development
+              # Run build non-interactively with simulator target
+              extra-flags: "--non-interactive --simulator"
+              
+          - name: 📝 Generate build summary
+            uses: build-summary
+            
+  # Preview workflow - creates internal build for testing
+  preview-build:
+    name: Create iOS Preview Build
+    description: Creates a preview build for internal testing
+    
+    # Trigger on specific branches or manually
+    on:
+      workflow_dispatch: {}   # Allow manual triggering
+    
+    jobs:
+      build:
+        name: Build Preview Binary
+        runs-on: eas
+        env:
+          EAS_BUILD_PROFILE: preview
+        steps:
+          - name: 📥 Checkout source code
+            uses: checkout
+            with:
+              ref: ${{ inputs.branch || 'main' }}
+              
+          - name: 🏗️ Setup build environment
+            uses: expo-setup
+            
+          - name: 📱 Build preview app for internal distribution
+            uses: eas-build
+            with:
+              platform: ios
+              profile: preview
+              # Run build non-interactively
+              extra-flags: "--non-interactive"
+              
+          - name: 📝 Generate build summary
+            uses: build-summary
+            
+  # Production workflow - full release pipeline with auto credentials
+  production-release:
+    name: iOS Production Release
+    description: Builds and submits iOS app to App Store with automatic credential management
+    
+    # Trigger on specific branches or manually
+    on:
+      workflow_dispatch: {}   # Allow manual triggering
+    
+    jobs:
+      build-and-submit:
+        name: Build and Submit iOS App
+        runs-on: eas
+        env:
+          EAS_BUILD_PROFILE: production
+          # App Store Connect API Key for auto credential management
+          EXPO_APPLE_APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          EXPO_APPLE_APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APPLE_API_ISSUER_ID }}
+          EXPO_APPLE_APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APPLE_API_KEY_CONTENT }}
+          # Traditional credentials as fallback
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          ASC_APP_ID: ${{ secrets.ASC_APP_ID }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        steps:
+          - name: 📥 Checkout source code
+            uses: checkout
+            with:
+              ref: ${{ inputs.branch || 'main' }}
+              
+          - name: 🏗️ Setup build environment
+            uses: expo-setup
+            
+          - name: 📱 Build production app with auto credentials
+            uses: eas-build
+            id: build
+            with:
+              platform: ios
+              profile: production
+              # Run build non-interactively
+              extra-flags: "--non-interactive"
+              
+          - name: 🚀 Submit to App Store
+            uses: eas-submit
+            with:
+              platform: ios
+              # Reference the build from previous step
+              build: ${{ steps.build.outputs.buildId }}
+              # Submit using API key (auto credentials)
+              
+          - name: 📝 Generate submission summary
+            uses: submission-summary
+            
+          - name: 🚀 Update App Store Metadata
+            uses: eas-metadata-push
+            with:
+              platform: ios

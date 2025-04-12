@@ -35,7 +35,8 @@
       "permissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE",
-        "android.permission.CAMERA"
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
       ],
       "package": "com.djscottyb.stickersmash",
       "versionCode": 1
@@ -68,8 +69,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "8f8daf01-c9d4-4a49-9112-394ccb9f01d8"
+        "projectId": "3a3a91cf-6327-4d09-92a0-ab4bbefd3c62"
       }
-    }
+    },
+    "owner": "djscottyb"
   }
 }
