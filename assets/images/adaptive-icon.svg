@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Transparent background -->
+  <rect width="1024" height="1024" fill="none"/>
+  
+  <!-- Target icon - centered on a transparent background -->
+  <circle cx="512" cy="512" r="400" fill="#8a57ff"/>
+  <circle cx="512" cy="512" r="300" fill="#0e7aff"/>
+  <circle cx="512" cy="512" r="200" fill="#ffffff"/>
+  <circle cx="512" cy="512" r="100" fill="#4CAF50"/>
+</svg>

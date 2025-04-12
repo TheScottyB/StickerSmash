@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background -->
+  <rect width="1024" height="1024" fill="#25292e"/>
+  
+  <!-- Inner circle -->
+  <circle cx="512" cy="512" r="420" fill="#1f2327"/>
+  
+  <!-- Central emoji-like target icon -->
+  <circle cx="512" cy="512" r="300" fill="#8a57ff"/>
+  <circle cx="512" cy="512" r="220" fill="#0e7aff"/>
+  <circle cx="512" cy="512" r="140" fill="#ffffff"/>
+  <circle cx="512" cy="512" r="60" fill="#4CAF50"/>
+  
+  <!-- Text -->
+  <text x="512" y="850" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">StickerSmash</text>
+</svg>
