@@ -56,12 +56,18 @@ case $OPTION in
     read -r CONFIRM
     if [[ $CONFIRM == "y" ]]; then
       echo -e "${YELLOW}Building locally...${NC}"
-      npx eas-cli build --platform ios --profile production --local --output=./build.ipa
+      # Create a build directory if it doesn't exist
+      PROJECT_ROOT=$(pwd)
+      BUILD_DIR="${PROJECT_ROOT}/builds"
+      mkdir -p "${BUILD_DIR}"
       
-      if [ -f "./build.ipa" ]; then
+      echo -e "${YELLOW}Building to: ${BUILD_DIR}/build.ipa${NC}"
+      npx eas-cli build --platform ios --profile production --local --output="${BUILD_DIR}/build.ipa" --non-interactive
+      
+      if [ -f "${BUILD_DIR}/build.ipa" ]; then
         echo -e "${GREEN}Local build successful. IPA file created.${NC}"
         echo -e "${YELLOW}Submitting to App Store...${NC}"
-        npx eas-cli submit --platform ios --path ./build.ipa --non-interactive
+        npx eas-cli submit --platform ios --path "${BUILD_DIR}/build.ipa" --non-interactive
       else
         echo -e "${RED}Local build failed or IPA file not found. Submission aborted.${NC}"
       fi
