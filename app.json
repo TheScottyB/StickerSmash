@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "StickerSmash",
-    "slug": "sticker-smash",
+    "name": "MyStickersApp",
+    "slug": "mystickers-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "stickersmash",
+    "scheme": "mystickersapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -18,13 +18,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.djscottyb.stickersmash",
+      "bundleIdentifier": "com.djscottyb.mystickersapp",
       "buildNumber": "1",
       "infoPlist": {
         "NSPhotoLibraryUsageDescription": "Allow $(PRODUCT_NAME) to access your photos to let you select images for stickers and save your creations",
         "NSPhotoLibraryAddUsageDescription": "Allow $(PRODUCT_NAME) to save your sticker creations to your photo library",
         "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera to let you take photos for stickers",
-        "UIRequiresFullScreen": true
+        "UIRequiresFullScreen": true,
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -36,9 +37,13 @@
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE",
         "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.CAMERA",
         "android.permission.RECORD_AUDIO"
       ],
-      "package": "com.djscottyb.stickersmash",
+      "package": "com.djscottyb.mystickersapp",
       "versionCode": 1
     },
     "web": {
@@ -72,6 +77,10 @@
         "projectId": "3a3a91cf-6327-4d09-92a0-ab4bbefd3c62"
       }
     },
-    "owner": "djscottyb"
+    "owner": "avallon-technologies-llc",
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/3a3a91cf-6327-4d09-92a0-ab4bbefd3c62"
+    }
   }
 }

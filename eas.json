@@ -9,33 +9,30 @@
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
-        "simulator": true
+        "simulator": false,
+        "credentialsSource": "remote"
       },
       "channel": "development",
-      "autoIncrement": false,
-      "autoCredentials": true,
-      "credentialsSource": "remote"
+      "autoIncrement": false
     },
     "preview": {
       "distribution": "internal",
       "ios": {
         "simulator": false,
-        "resourceClass": "m1-medium"
+        "resourceClass": "m1-medium",
+        "credentialsSource": "remote"
       },
       "channel": "preview",
-      "autoIncrement": true,
-      "autoCredentials": true,
-      "credentialsSource": "remote"
+      "autoIncrement": true
     },
     "production": {
       "distribution": "store",
       "ios": {
-        "resourceClass": "m1-medium"
+        "resourceClass": "m1-medium",
+        "credentialsSource": "remote"
       },
       "channel": "production",
-      "autoIncrement": true,
-      "autoCredentials": true,
-      "credentialsSource": "remote"
+      "autoIncrement": true
     }
   },
   "submit": {
@@ -45,8 +42,5 @@
         "appleTeamId": "${EXPO_APPLE_TEAM_ID}"
       }
     }
-  },
-  "extend": {
-    "workflows": true
   }
 }

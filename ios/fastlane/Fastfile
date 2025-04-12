@@ -1,0 +1,17 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build app for development"
+  lane :build_development do
+    setup_project
+    build_ios_app(
+      workspace: "StickerSmash.xcworkspace",
+      scheme: "StickerSmash",
+      configuration: "Debug",
+      export_method: "development",
+      include_symbols: true,
+      include_bitcode: false,
+      export_xcargs: "-allowProvisioningUpdates"
+    )
+  end
+end

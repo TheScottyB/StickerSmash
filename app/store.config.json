@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "StickerSmash",
+    "name": "MyStickersApp",
     "stores": {
       "ios": {
         "ascApiKeyId": "${EXPO_APPLE_API_KEY_ID}",
