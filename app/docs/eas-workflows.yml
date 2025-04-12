@@ -1,0 +1,35 @@
+workflows:
+  production-release:
+    name: iOS Production Release
+    description: Builds and submits iOS app to App Store
+    on:
+      workflow_dispatch: {}
+    jobs:
+      build-and-submit:
+        name: Build and Submit iOS App
+        runs-on: eas
+        env:
+          EXPO_APPLE_APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          EXPO_APPLE_APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APPLE_API_ISSUER_ID }}
+          EXPO_APPLE_APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APPLE_API_KEY_CONTENT }}
+        steps:
+          - name: Checkout code
+            uses: checkout
+          - name: Setup environment
+            uses: expo-setup
+          - name: Build iOS app
+            uses: eas-build
+            id: build
+            with:
+              platform: ios
+              profile: production
+              non-interactive: true
+          - name: Submit to App Store
+            uses: eas-submit
+            with:
+              platform: ios
+              build: ${{ steps.build.outputs.buildId }}
+          - name: Update App Store Metadata
+            uses: eas-metadata-push
+            with:
+              platform: ios

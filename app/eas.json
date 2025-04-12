@@ -1,0 +1,46 @@
+{
+  "cli": {
+    "version": ">=16.3.0",
+    "requireCommit": false,
+    "appVersionSource": "local"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true,
+        "credentialsSource": "remote"
+      },
+      "channel": "development",
+      "autoIncrement": false
+    },
+    "preview": {
+      "distribution": "internal",
+      "ios": {
+        "simulator": false,
+        "resourceClass": "m1-medium",
+        "credentialsSource": "remote"
+      },
+      "channel": "preview",
+      "autoIncrement": true
+    },
+    "production": {
+      "distribution": "store",
+      "ios": {
+        "resourceClass": "m1-medium",
+        "credentialsSource": "remote"
+      },
+      "channel": "production",
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "ascAppId": "${EXPO_ASC_APP_ID}",
+        "appleTeamId": "${EXPO_APPLE_TEAM_ID}"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "stickersmash",
-  "main": "expo-router/entry",
+  "main": "app/src/index",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",

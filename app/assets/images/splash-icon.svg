@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="2048" height="2048" viewBox="0 0 2048 2048" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="2048" height="2048" fill="#FFFFFF"/>
+  
+  <!-- App name -->
+  <text x="1024" y="840" font-family="Arial, sans-serif" font-size="160" font-weight="bold" fill="#25292e" text-anchor="middle">StickerSmash</text>
+  
+  <!-- Target icon -->
+  <circle cx="1024" cy="1240" r="300" fill="#8a57ff"/>
+  <circle cx="1024" cy="1240" r="220" fill="#0e7aff"/>
+  <circle cx="1024" cy="1240" r="140" fill="#ffffff"/>
+  <circle cx="1024" cy="1240" r="60" fill="#4CAF50"/>
+</svg>
