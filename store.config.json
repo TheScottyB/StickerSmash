@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "MyStickersApp",
+    "stores": {
+      "ios": {
+        "ascApiKeyId": "${EXPO_APPLE_API_KEY_ID}",
+        "ascApiKeyIssuerId": "${EXPO_APPLE_API_ISSUER_ID}",
+        "ascApiKeyPath": "${EXPO_APPLE_API_KEY_PATH}"
+      }
+    },
+    "appStoreConfig": {
+      "categoryType": "utilities",
+      "description": "Create and share custom stickers using your photos",
+      "keywords": ["stickers", "photo editing", "creative", "social"],
+      "releaseNotes": "Initial release"
+    }
+  }
+}
