@@ -5,55 +5,14 @@
       "ios": {
         "ascApiKeyId": "${EXPO_APPLE_API_KEY_ID}",
         "ascApiKeyIssuerId": "${EXPO_APPLE_API_ISSUER_ID}",
-        "ascApiKeyPath": "${EXPO_APPLE_API_KEY_PATH}",
-        "appleTeamId": "${EXPO_APPLE_TEAM_ID}"
+        "ascApiKeyPath": "${EXPO_APPLE_API_KEY_PATH}"
       }
     },
     "appStoreConfig": {
       "categoryType": "utilities",
-      "secondaryCategory": "photo-video",
-      "copyright": "© 2025 StickerSmash Research Team",
-      "description": "Create custom stickers by combining your photos with fun emoji stickers! StickerSmash lets you select photos from your library, add emoji stickers, position and resize them with intuitive gestures, and save your creations to share with friends.\n\nFeatures:\n• Select photos from your library or take new ones\n• Add emoji stickers to your photos\n• Move, resize, and rotate stickers with touch gestures\n• Save your creations to your photo library\n• Automatic cleanup of temporary files\n• Comprehensive error handling\n• Support for both light and dark mode\n\nPart of an iOS deployment research initiative.",
-      "keywords": [
-        "stickers",
-        "photo",
-        "emoji",
-        "editing",
-        "creative",
-        "fun",
-        "share",
-        "customize"
-      ],
-      "languages": [
-        "en-US"
-      ],
-      "releaseNotes": "Initial release of StickerSmash - a research project exploring iOS app deployment methodologies.",
-      "privacyPolicyUrl": "https://www.example.com/privacy",
-      "supportUrl": "https://www.example.com/support",
-      "marketingUrl": "https://www.example.com/stickersmash"
-    },
-    "infoPlist": {
-      "ITSAppUsesNonExemptEncryption": false,
-      "UIRequiresFullScreen": true,
-      "NSPhotoLibraryUsageDescription": "StickerSmash needs access to your photos to let you select images for stickers and save your creations",
-      "NSPhotoLibraryAddUsageDescription": "StickerSmash needs permission to save your sticker creations to your photo library",
-      "NSCameraUsageDescription": "StickerSmash needs access to your camera to let you take photos for stickers"
-    },
-    "appReviewInformation": {
-      "firstName": "App",
-      "lastName": "Reviewer",
-      "email": "reviewer@example.com",
-      "phone": "+1 555 555 5555",
-      "notes": "This is a research project exploring different iOS deployment methodologies. The app allows users to create stickers by combining photos with emoji. There are no login credentials required."
-    },
-    "appScreenshots": {
-      "ios": {
-        "6.5Inch": [
-          "./metadata/ios/6.5Inch/screenshot1.png",
-          "./metadata/ios/6.5Inch/screenshot2.png",
-          "./metadata/ios/6.5Inch/screenshot3.png"
-        ]
-      }
+      "description": "Create and share custom stickers using your photos",
+      "keywords": ["stickers", "photo editing", "creative", "social"],
+      "releaseNotes": "Initial release"
     }
   }
 }
