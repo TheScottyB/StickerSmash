@@ -1,6 +1,6 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-# dependencies
+# Dependencies
 node_modules/
 
 # Expo
@@ -20,19 +20,87 @@ expo-env.d.ts
 # Metro
 .metro-health-check*
 
-# debug
+# Debug
 npm-debug.*
 yarn-debug.*
 yarn-error.*
 
-# macOS
+# Build artifacts
+build-*.tar.gz
+build-*.ipa
+*.aab
+*.apk
+*.ipa
+
+# iOS specific
+ios/build/
+ios/Pods/
+ios/.xcode.env.local
+ios/Podfile.lock
+ios/StickerSmash.xcodeproj/xcuserdata/
+ios/StickerSmash.xcworkspace/xcuserdata/
+ios/StickerSmash.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Android specific
+android/app/build/
+android/app/release/
+android/build/
+android/gradle/
+android/local.properties
+android/.gradle/
+android/captures/
+android/app/src/*/res/drawable-*
+android/app/src/*/res/raw/
+
+# Temporary directories
+temp_ipa/
+builds/
+config_backup_*/
+
+# Fastlane specific
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+fastlane/README.md
+
+# System files
 .DS_Store
 *.pem
+Thumbs.db
+._*
+.Spotlight-V100
+.Trashes
 
-# local env files
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IDE - IntelliJ/WebStorm/Android Studio
+.idea/
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/dictionaries
+.idea/libraries
+
+# Local env files
 .env*.local
+.env
+.env.development
+.env.production
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 
-app-example
+# Sensitive configuration files
+store.config.json
+secrets.json
+credentials.json
+
+# Project specific
+app-example/
