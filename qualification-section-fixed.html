@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qualification Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .diagonal-stripes {
+      background-image: linear-gradient(45deg, #333 25%, transparent 25%, transparent 50%, #333 50%, #333 75%, transparent 75%, transparent);
+      background-size: 15px 15px;
+    }
+    .qualification-container {
+      max-width: 450px;
+      padding: 1.5rem;
+      background-color: #f9fafb;
+      border-radius: 0.75rem;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .qualification-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+    .qualification-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      z-index: 10;
+    }
+    .qualification-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .circle {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #333;
+      border-radius: 50%;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .qualification-text {
+      font-size: 1.125rem;
+      line-height: 1.4;
+    }
+    .sub-list {
+      list-style-type: none;
+      padding-left: 2.25rem;
+      margin-top: 0.5rem;
+    }
+    .sub-item {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+    }
+    .sub-item:before {
+      content: "-";
+      margin-right: 0.5rem;
+    }
+    .diagonal-decoration {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 100%;
+      background-image: linear-gradient(45deg, #333 25%, transparent 25%, transparent 50%, #333 50%, #333 75%, transparent 75%, transparent);
+      background-size: 15px 15px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 p-4">
+  <div class="qualification-container">
+    <!-- Diagonal stripe decoration -->
+    <div class="diagonal-decoration"></div>
+    
+    <h2 class="qualification-title">Who Qualifies?</h2>
+    
+    <ul class="qualification-list">
+      <li class="qualification-item">
+        <div class="circle"></div>
+        <div class="qualification-text">Available nationwide (except New York)</div>
+      </li>
+      
+      <li class="qualification-item">
+        <div class="circle"></div>
+        <div class="qualification-text">Purchase only (no refinances)</div>
+      </li>
+      
+      <li class="qualification-item">
+        <div class="circle"></div>
+        <div class="qualification-text">No income limits</div>
+      </li>
+      
+      <li class="qualification-item">
+        <div class="circle"></div>
+        <div class="qualification-text">Minimum 600 FICO score</div>
+      </li>
+      
+      <li class="qualification-item">
+        <div class="circle"></div>
+        <div class="qualification-text">Loan-to-Value (LTV) 90% - 96.5%</div>
+      </li>
+      
+      <li class="qualification-item">
+        <div class="circle"></div>
+        <div class="qualification-text">Eligible properties:</div>
+      </li>
+      
+      <li class="sub-list">
+        <div class="sub-item">Primary residences (1-2 units)</div>
+        <div class="sub-item">Single-family homes, PUDs, townhomes, condos, attached/detached homes, modular & manufactured homes</div>
+      </li>
+      
+      <li class="qualification-item">
+        <div class="circle"></div>
+        <div class="qualification-text">Non-occupant borrowers allowed (family members or relatives only)</div>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
