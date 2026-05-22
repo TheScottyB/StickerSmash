@@ -1,66 +1,34 @@
-import React from 'react';
-import { 
-  Modal, 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  StyleSheet, 
-  FlatList, 
+import {
   Dimensions,
-  Platform 
+  FlatList,
+  Modal,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
-// Define the sticker types
-export type Sticker = {
-  id: string;
-  emoji: string;
-};
+import { STICKERS, type Sticker } from '@/constants/stickers';
 
-// Define component props
 type StickersModalProps = {
   isVisible: boolean;
   onClose: () => void;
   onSelectSticker: (sticker: Sticker) => void;
 };
 
-// List of available stickers
-const STICKERS: Sticker[] = [
-  { id: '1', emoji: '😀' },
-  { id: '2', emoji: '😍' },
-  { id: '3', emoji: '🔥' },
-  { id: '4', emoji: '👍' },
-  { id: '5', emoji: '🎉' },
-  { id: '6', emoji: '🚀' },
-  { id: '7', emoji: '🌈' },
-  { id: '8', emoji: '💯' },
-  { id: '9', emoji: '🤩' },
-  { id: '10', emoji: '🦄' },
-  { id: '11', emoji: '🍕' },
-  { id: '12', emoji: '⭐' },
-  { id: '13', emoji: '❤️' },
-  { id: '14', emoji: '👏' },
-  { id: '15', emoji: '🎸' },
-  { id: '16', emoji: '🏆' },
-];
-
-const { width } = Dimensions.get('window');
 const COLUMNS = 4;
-const EMOJI_SIZE = width / COLUMNS - 20; // Account for margins
+const EMOJI_SIZE = Dimensions.get('window').width / COLUMNS - 20;
 
-export default function StickersModal({ isVisible, onClose, onSelectSticker }: StickersModalProps) {
-  const renderStickerItem = ({ item }: { item: Sticker }) => (
-    <TouchableOpacity
-      style={styles.stickerItem}
-      onPress={() => onSelectSticker(item)}
-    >
-      <Text style={styles.emojiText}>{item.emoji}</Text>
-    </TouchableOpacity>
-  );
-
+export default function StickersModal({
+  isVisible,
+  onClose,
+  onSelectSticker,
+}: StickersModalProps) {
   return (
     <Modal
       animationType="slide"
-      transparent={true}
+      transparent
       visible={isVisible}
       onRequestClose={onClose}
     >
@@ -72,10 +40,17 @@ export default function StickersModal({ isVisible, onClose, onSelectSticker }: S
               <Text style={styles.closeButtonText}>✕</Text>
             </TouchableOpacity>
           </View>
-          
+
           <FlatList
             data={STICKERS}
-            renderItem={renderStickerItem}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.stickerItem}
+                onPress={() => onSelectSticker(item)}
+              >
+                <Text style={styles.emojiText}>{item.emoji}</Text>
+              </TouchableOpacity>
+            )}
             keyExtractor={(item) => item.id}
             numColumns={COLUMNS}
             contentContainerStyle={styles.stickerList}
@@ -99,10 +74,7 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: Platform.OS === 'ios' ? 40 : 20,
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: -2,
-    },
+    shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
@@ -114,22 +86,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   },
-  headerText: {
-    color: '#ffffff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  closeButton: {
-    padding: 8,
-  },
-  closeButtonText: {
-    color: '#ffffff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  stickerList: {
-    paddingBottom: 20,
-  },
+  headerText: { color: '#ffffff', fontSize: 18, fontWeight: 'bold' },
+  closeButton: { padding: 8 },
+  closeButtonText: { color: '#ffffff', fontSize: 18, fontWeight: 'bold' },
+  stickerList: { paddingBottom: 20 },
   stickerItem: {
     width: EMOJI_SIZE,
     height: EMOJI_SIZE,
@@ -139,8 +99,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#3d4148',
     borderRadius: 12,
   },
-  emojiText: {
-    fontSize: 32,
-  },
+  emojiText: { fontSize: 32 },
 });
-
