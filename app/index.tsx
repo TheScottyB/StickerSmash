@@ -91,7 +91,7 @@ export default function App() {
   const [placedStickers, setPlacedStickers] = useState<PlacedSticker[]>([]);
   const [currentStickerId, setCurrentStickerId] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [permissionStatus, setPermissionStatus] = useState<MediaLibrary.PermissionStatus>();
+  const [permissionStatus, setPermissionStatus] = useState<MediaLibrary.PermissionResponse['status']>();
   
   // Ref for the image container to capture for sharing
   const imageContainerRef = useRef<View>(null);
